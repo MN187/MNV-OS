@@ -17,7 +17,7 @@ read -p "install nvidia drivers? [y/n]" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	echo nvidia-dkms >> temp.xbps
+	echo nvidia-open >> temp.xbps
 fi
 
 # update repository + system
@@ -74,4 +74,5 @@ else
     echo "Installation finished."
     echo "Please reboot the system to start using MNV-OS."
 fi
+
 
