@@ -42,29 +42,22 @@ sudo make install
 cd ..
 sudo rm -r pipes.sh
 
-# generate locales (Void way)
+# generate locales
 sudo xbps-reconfigure -f glibc-locales
 
-# change shell to fish (if installed)
-if command -v fish >/dev/null 2>&1; then
-    chsh -s /usr/bin/fish
-fi
+# change shell to fish
+chsh -s /usr/bin/fish
 
 # copy Wallpaper
 sudo mkdir -p /usr/share/wallpapers
 sudo cp wp/cph.gif /usr/share/wallpapers
 
-# apply services (Void = runit)
-for service in pipewire pipewire-pulse wireplumber bluetooth ly; do
-    if [ -d "/etc/sv/$service" ]; then
-        sudo ln -sf /etc/sv/$service /var/service/
-    fi
-done
-
-# disable tty getty services (Void)
-for tty in 1 2 3; do
-    sudo rm -f /var/service/agetty-tty$tty 2>/dev/null || true
-done
+# apply services
+sudo ln -s /etc/sv/bluetoothd /var/service/
+sudo ln -s /etc/sv/dbus /var/service/
+sudo ln -s /etc/sv/iwd /var/service
+sudo ln -s /etc/sv/greetd /var/service
+sudo ln -s /etc/sv/polkitd /var/service
 
 echo
 read -p "MNV-OS installed. Reboot now? [y/n] " -n 1 -r
@@ -81,3 +74,4 @@ else
     echo "Installation finished."
     echo "Please reboot the system to start using MNV-OS."
 fi
+
