@@ -18,6 +18,7 @@ font-hack-ttf
 gcc
 git
 greetd
+opendoas
 grub-i386-efi
 grub-x86_64-efi
 impala
@@ -55,3 +56,4 @@ wev
 xtools
 xwayland-satellite
 zig
+
