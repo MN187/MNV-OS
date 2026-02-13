@@ -12,7 +12,6 @@ fastfetch
 firefox
 fish-shell
 gcc
-git
 greetd
 opendoas
 impala
@@ -34,7 +33,6 @@ rsync
 swaylock
 swww
 tuigreet
-void-repo-nonfree
 wayland
 wayland-devel
 wayland-protocols
