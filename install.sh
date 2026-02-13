@@ -23,6 +23,9 @@ cat packs/xbps.txt > temp.xbps
 # update repository + system
 sudo xbps-install -Syu
 
+#install void-repo-nonfree
+sudo xbps-install -S void-repo-nonfree
+
 # install xbps packages
 sudo xbps-install -S $(cat temp.xbps)
 
