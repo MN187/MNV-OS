@@ -47,12 +47,19 @@ chsh -s /usr/bin/fish
 
 
 #Install Fonts
+sudo mkdir /usr/share/fonts/TTF
 sudo curl -L -o /usr/share/fonts/TTF/Hack.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip" && sudo unzip /usr/share/fonts/TTF/Hack.zip -d /usr/share/fonts/TTF && sudo rm /usr/share/fonts/TTF/Hack.zip
 
 
 # copy Wallpaper
 sudo mkdir -p /usr/share/wallpapers
 sudo cp wp/cph.gif /usr/share/wallpapers
+
+#Setup Pipewire
+sudo mkdir -p /etc/pipewire/pipewire.conf.d
+sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
+sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+
 
 # apply services
 sudo ln -s /etc/sv/bluetoothd /var/service/
