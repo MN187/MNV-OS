@@ -10,27 +10,21 @@ set -euo pipefail
 cat packs/xbps.txt > temp.xbps
 
 # install nvidia drivers if nececarry
-echo
-echo \#############################################################################################################
-echo
-read -p "install nvidia drivers? [y/n]" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-	echo nvidia-open >> temp.xbps
-fi
+#echo
+#echo \#############################################################################################################
+#echo
+#read -p "install nvidia drivers? [y/n]" -n 1 -r
+#echo
+#if [[ $REPLY =~ ^[Yy]$ ]]
+#then
+#	echo nvidia-open >> temp.xbps
+#fi
 
 # update repository + system
 sudo xbps-install -Syu
 
 # install xbps packages
-sudo xargs -a temp.xbps xbps-install -y
-
-#Install Fonts
-sudo curl -L -o /usr/share/fonts/TTF/Hack.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip" && sudo unzip /usr/share/fonts/TTF/Hack.zip -d /usr/share/fonts/TTF && sudo rm /usr/share/fonts/TTF/Hack.zip
-
-# install rsync if not present
-sudo xbps-install -y rsync
+sudo xbps-install -S $(cat temp.xbps)
 
 # apply configs
 sudo rsync -cr root/ / -v
@@ -47,6 +41,11 @@ sudo xbps-reconfigure -f glibc-locales
 
 # change shell to fish
 chsh -s /usr/bin/fish
+
+
+#Install Fonts
+sudo curl -L -o /usr/share/fonts/TTF/Hack.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip" && sudo unzip /usr/share/fonts/TTF/Hack.zip -d /usr/share/fonts/TTF && sudo rm /usr/share/fonts/TTF/Hack.zip
+
 
 # copy Wallpaper
 sudo mkdir -p /usr/share/wallpapers
