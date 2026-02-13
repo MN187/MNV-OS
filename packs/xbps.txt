@@ -1,7 +1,6 @@
 
 Waybar
 alacritty
-base-system
 bluetui
 bluez
 cmake
