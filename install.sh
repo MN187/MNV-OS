@@ -63,8 +63,8 @@ sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pip
 
 # apply services
 sudo ln -s /etc/sv/bluetoothd /var/service/
-sudo ln -s /etc/sv/dbus /var/service/
-sudo ln -s /etc/sv/iwd /var/service
+#sudo ln -s /etc/sv/dbus /var/service/
+#sudo ln -s /etc/sv/iwd /var/service
 sudo ln -s /etc/sv/greetd /var/service
 sudo ln -s /etc/sv/polkitd /var/service
 
