@@ -23,6 +23,7 @@ nemo
 neovim
 niri
 noto-fonts-cjk
+pavucontrol
 pam-devel
 pipewire
 polkit
