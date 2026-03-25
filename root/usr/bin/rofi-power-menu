@@ -41,10 +41,8 @@ declare -A actions
 actions[lockscreen]="swaylock --screenshot --clock --indicator --datestr %d%.%m.%Y --fade-in 0.3 --effect-blur 5x1"
 #actions[switchuser]="???"
 actions[logout]="niri msg action quit --skip-confirmation"
-actions[suspend]="systemctl suspend"
-actions[hibernate]="systemctl hibernate"
-actions[reboot]="systemctl reboot"
-actions[shutdown]="systemctl poweroff"
+actions[reboot]="doas /sbin/reboot"
+actions[shutdown]="doas /sbin/poweroff"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)
